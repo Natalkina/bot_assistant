@@ -8,7 +8,7 @@ setup(
     version='1.0.4',
     description='A personal assistant with a command line interface',
     # long_description=long_description,
-    url='https://github.com/tetianakondra/Python_core_Team_3/blob/main/Python_core_Team_3.py',
+    url='https://github.com/tetianakondra/Address_book/blob/main/Address_book.py',
     author='Tetiana Kondra, Natalia Sokil, Yevhen Kosarev, Oleksandr Chepkanich, Andrii Holubenko',
     author_email='t_prischepa@ukr.net, sokilnatalka@gmail.com, kossik89@gmail.com, a.chepkanich@gmail.com, andrii.holub82@gmail.com',
     license='MIT',

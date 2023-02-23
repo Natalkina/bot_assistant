@@ -1,5 +1,5 @@
 # Import the necessary packages
-import Python_core_Team_3
+from Address_book import Console
 import Clean_folder
 import Notes
 from consolemenu import *
@@ -24,7 +24,7 @@ def main_menu():
 
 
       # A FunctionItem runs a Python function when selected
-      address_book = FunctionItem(colored("Address Book", "yellow"), Python_core_Team_3.main, [])
+      address_book = FunctionItem(colored("Address Book", "yellow"), Console.main, [])
       clean_folder = FunctionItem(colored("Clean Folder", "yellow"), Clean_folder.main, [])
       notes = FunctionItem(colored("Notes", "yellow"), Notes.main, [])
 

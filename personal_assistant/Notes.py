@@ -1,42 +1,17 @@
 import pickle
-from abc import ABC, abstractmethod
 from datetime import datetime
 import time
 from prompt_toolkit import prompt
 from prompt_toolkit.completion import WordCompleter
 from prompt_toolkit.key_binding import KeyBindings
+from ResponseWriter import ConsoleResponseWriter
+
+writer = ConsoleResponseWriter()
 
 COMMAND_WORDS = ["add", "delete", "edit", "exit", "help", "find", "save", "show_all", "sorted_date", "sorted_tag"]
 
-class AbstractGuide(ABC):
 
-    @abstractmethod
-    def show_info(self):
-        pass
-
-class Guide(AbstractGuide):
-
-    def show_info(self):
-        return """Enter:\n
-                'add' - to add a record\n
-                'edit' - edit a record by ID\n
-                'delete' - delete a record by ID\n
-                'show_all' - show all records\n
-                'find' and text to find the note\n
-                'save' - save changes\n
-                'sorted_date' - sorting by date from newer records and output\n
-                'sorted_tag' - sorting tags alphabetically and output\n
-                'exit' - exit the program.\n
-                """
-
-class AbstractNoteInfo(ABC):
-
-    @abstractmethod
-    def show_note(self, text):
-        pass
-
-
-class NoteBook(AbstractNoteInfo):
+class NoteBook:
     def __init__(self):
         self.datetimestr = str(datetime.now().strftime("%d%m%Y%H%M%S"))
         self.book = {}
@@ -67,7 +42,7 @@ class NoteBook(AbstractNoteInfo):
         if self.book.__contains__(id):
             self.book.pop(id)
         else:
-            return print("ID not found")
+            return writer.write("ID not found")
 
     def clear(self):
         self.book.clear()
@@ -76,7 +51,7 @@ class NoteBook(AbstractNoteInfo):
         if id in self.book:
             self.book[id][0] = text
         else:
-            return print("ID not found")
+            return writer.write("ID not found")
         if tag:
             self.book[id][2] = tag
 
@@ -184,7 +159,7 @@ def main():
 
             if command == "find":
                 text_to_find = input('Input text to find note:\n')
-                print(text.show_note(text_to_find))
+                writer.write(text.show_note(text_to_find))
 
             if command == "delete":
                 id = input('Input ID for delete:\n')
@@ -197,31 +172,41 @@ def main():
                 text.edit(id, note, tag)
 
             if command == "show_all":
-                print(text.showall())
+                writer.write(text.showall())
 
             if command == "exit":
                 text.file_write()
-                print("Goodbye")
+                writer.write("Goodbye")
                 time.sleep(3)
                 break
 
             if command == "save":
                 text.file_write()
-                print("The notebook is saved")
+                writer.write("The notebook is saved")
 
             if command == "sorted_date":
-                print(text.sortdate())
+                writer.write(text.sortdate())
 
             if command == "sorted_tag":
-                print(text.sortrag())
+                writer.write(text.sortrag())
 
             if command == "help":
-                print(Guide().show_info())
+                writer.write("""Enter:\n
+                'add' - to add a record\n
+                'edit' - edit a record by ID\n
+                'delete' - delete a record by ID\n
+                'show_all' - show all records\n
+                'find' and text to find the note\n
+                'save' - save changes\n
+                'sorted_date' - sorting by date from newer records and output\n
+                'sorted_tag' - sorting tags alphabetically and output\n
+                'exit' - exit the program.\n
+                """)
             else:
-                print("Please enter only command. Command 'help' to view a list of commands")
+                writer.write("Please enter only command. Command 'help' to view a list of commands")
 
         else:
-            print("Please enter only command. Command 'help' to view a list of commands")
+            writer.write("Please enter only command. Command 'help' to view a list of commands")
 
 
 if __name__ == '__main__':

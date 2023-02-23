@@ -3,7 +3,9 @@ import re
 import os
 import shutil
 import time
+from personal_assistant.ResponseWriter import ConsoleResponseWriter
 
+writer = ConsoleResponseWriter()
 
 files = {'immages': {'.jpeg', '.png', '.jpg', '.svg', '.psd'},
          'video': {'.avi', '.mp4', '.mov', '.mkv'},
@@ -135,11 +137,11 @@ def main():
             if path.exists():
                 path = path
             else:
-                print(f'path {path.absolute()} not exists. Enter an existing path.')
+                writer.write(f'path {path.absolute()} not exists. Enter an existing path.')
                 time.sleep(3)
                 break
         else:
-            print(f'The app did not work. Empty path. Enter an existing path.')
+            writer.write(f'The app did not work. Empty path. Enter an existing path.')
             time.sleep(3)
             break
 
@@ -155,7 +157,7 @@ def main():
         replace_unknown_files(path, is_files)
         unpacking_archives(path)
         remove_directories(path)
-        print('Everything is cleaned!')
+        writer.write('Everything is cleaned!')
         time.sleep(3)
         break
 
