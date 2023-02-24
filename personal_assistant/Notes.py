@@ -207,7 +207,3 @@ def main():
 
         else:
             writer.write("Please enter only command. Command 'help' to view a list of commands")
-
-
-if __name__ == '__main__':
-    main()

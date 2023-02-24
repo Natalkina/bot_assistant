@@ -5,7 +5,6 @@ import Notes
 from consolemenu import *
 from consolemenu.items import *
 from termcolor import colored
-import sys
 
 def main_menu():
 
@@ -48,6 +47,3 @@ def main_menu():
 
       # Finally, we call show to show the menu and allow the user to interact
       menu.show()
-
-if __name__ == '__main__':
-      main_menu()

@@ -160,10 +160,3 @@ def main():
         writer.write('Everything is cleaned!')
         time.sleep(3)
         break
-
-
-
-if __name__ == '__main__':
-    main()
-
-
