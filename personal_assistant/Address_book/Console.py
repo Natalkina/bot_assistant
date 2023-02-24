@@ -1,6 +1,6 @@
 from Address_book.Application import AddressBookApplication
 from Address_book.Models import AddressBook
-from personal_assistant.ResponseWriter import ConsoleResponseWriter
+from ResponseWriter import ConsoleResponseWriter
 
 application = AddressBookApplication(AddressBook('addressbook.csv'))
 writer = ConsoleResponseWriter()

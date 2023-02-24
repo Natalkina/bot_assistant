@@ -47,3 +47,6 @@ def main_menu():
 
       # Finally, we call show to show the menu and allow the user to interact
       menu.show()
+
+if __name__ == '__main__':
+      main_menu()

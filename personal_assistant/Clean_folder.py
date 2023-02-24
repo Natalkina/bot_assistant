@@ -3,7 +3,7 @@ import re
 import os
 import shutil
 import time
-from personal_assistant.ResponseWriter import ConsoleResponseWriter
+from ResponseWriter import ConsoleResponseWriter
 
 writer = ConsoleResponseWriter()
 
