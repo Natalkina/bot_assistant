@@ -1,5 +1,5 @@
-from Application import AddressBookApplication
-from Models import AddressBook
+from Address_book.Application import AddressBookApplication
+from Address_book.Models import AddressBook
 from personal_assistant.ResponseWriter import ConsoleResponseWriter
 
 application = AddressBookApplication(AddressBook('addressbook.csv'))

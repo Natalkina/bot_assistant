@@ -1,3 +1,6 @@
 .idea
 *.pyc
 venv
+personal_assistant/NoteBook.txt
+dist
+build

@@ -18,7 +18,15 @@ setup(
         "Operating System :: OS Independent"],
     packages=find_namespace_packages(),
     data_files=[
-        ('personal_assistant', ['personal_assistant/NoteBook.txt'],), ('docs', ['docs/main_menu.jpg'],)],
+        (
+            'personal_assistant',
+            ['personal_assistant/NoteBook.txt'],
+        ),
+        (
+            'docs',
+            ['docs/main_menu.jpg'],
+        )
+    ],
     include_package_data=True,
     install_requires=['prompt_toolkit', 'console-menu', 'termcolor'],
     entry_points={'console_scripts': [

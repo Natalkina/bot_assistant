@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "personal-assistant"
+version = "0.1.0"
+description = "Consists of addressbook, notes and clean_folder"
+authors = ["Sokil Natalia <sokilnatalka@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+packages = [{include = "personal_assistant"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+termcolor = "^2.2.0"
+prompt-toolkit = "^3.0.37"
+console-menu = "^0.7.1"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

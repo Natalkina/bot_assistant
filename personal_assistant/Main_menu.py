@@ -5,7 +5,7 @@ import Notes
 from consolemenu import *
 from consolemenu.items import *
 from termcolor import colored
-
+import sys
 
 def main_menu():
 
